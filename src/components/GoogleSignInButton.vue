@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="googleSignIn">Google Sign In</button>
+    <q-btn  @click="googleSignIn">Google Sign In</q-btn>
   </div>
 </template>
 
