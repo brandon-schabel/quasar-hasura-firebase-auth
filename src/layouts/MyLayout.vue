@@ -60,15 +60,13 @@
             />
           </q-item>
         </router-link>
-        <q-item
-          v-if="user"
-          @click="signOut"
-        >
-          <q-item-side icon="key" />
+        <q-item @click="signOut">
+          <SignOutButton></SignOutButton>
+          <!-- <q-item-side icon="key" />
           <q-item-main
             label="Sign Out"
             sublabel="Sign Out"
-          />
+          /> -->
         </q-item>
       </q-list>
     </q-layout-drawer>
@@ -82,9 +80,11 @@
 <script>
 import { openURL } from 'quasar'
 import { auth } from '../firebase'
+import SignOutButton from 'components/SignOutButton'
 
 export default {
   name: 'MyLayout',
+  components: { SignOutButton },
   data() {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop
@@ -97,10 +97,17 @@ export default {
   },
   methods: {
     openURL,
-    signOut: function() {
-      auth.signOut().then(() => {
-        this.$router.push('sign-in')
-      })
+    signOut: async function() {
+      console.log('signout triggered')
+      try {
+        this.setUser(this.$store.state, null, 'loading')
+        await auth.signOut().then(() => {
+          this.setUser(this.$store.state, null, 'out')
+          this.$router.push('sign-in')
+        })
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
