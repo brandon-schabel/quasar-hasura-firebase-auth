@@ -18,14 +18,12 @@ module.exports = {
   ],
 
   // required to lint *.vue files
-  plugins: [
-    'vue'
-  ],
+  plugins: ['vue'],
 
   globals: {
-    'ga': true, // Google Analytics
-    'cordova': true,
-    '__statics': true
+    ga: true, // Google Analytics
+    cordova: true,
+    __statics: true
   },
 
   // add your custom rules here
@@ -36,6 +34,11 @@ module.exports = {
     'arrow-parens': 'off',
     'one-var': 'off',
     'prefer-promise-reject-errors': 'off',
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "never"
+  }],
 
     'import/first': 'off',
     'import/named': 'error',

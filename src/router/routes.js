@@ -1,7 +1,7 @@
-import SignInPage from '../components/SignIn'
-import SignUpPage from '../components/SignUp.vue'
-import Error404 from '../components/Error404.vue'
-import Dashboard from '../components/Dashboard.vue'
+import SignInPage from 'pages/SignInPage.vue'
+import SignUpPage from 'pages/SignUpPage.vue'
+import Error404 from 'pages/Error404.vue'
+import Dashboard from 'pages/Dashboard.vue'
 import MyLayout from 'layouts/MyLayout.vue'
 import Index from 'pages/Index.vue'
 

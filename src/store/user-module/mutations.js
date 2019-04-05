@@ -1,4 +1,4 @@
-import { auth } from 'firebase/index.js'
+import { auth } from '../../firebase'
 
 export const setUser = state => {
   state.user = auth.currentUser

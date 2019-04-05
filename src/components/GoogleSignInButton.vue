@@ -8,14 +8,17 @@
 import { auth, googleSignInProvider } from '../firebase'
 
 export default {
+  name: 'GoogleSignInButton',
   methods: {
     googleSignIn: function() {
-      auth.signInWithPopup(googleSignInProvider).then(user => {
-        this.$router.replace('dashboard')
-      }),
-        error => {
+      return auth
+        .signInWithPopup(googleSignInProvider)
+        .then(user => {
+          this.$router.replace('dashboard')
+        })
+        .catch(error => {
           alert(error.message)
-        }
+        })
     }
   }
 }

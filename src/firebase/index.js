@@ -1,11 +1,9 @@
+import Vue from 'vue'
 import firebase, { initializeApp } from 'firebase'
+import { firestorePlugin } from 'vuefire'
+import config from './config'
 
-const config = {
-  projectId: process.env.VUE_APP_PROJECT_ID,
-  databaseURL: process.env.VUE_APP_DATABASE_URL,
-  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
-  authDomain: process.env.VUE_APP_AUTH_DOMAIN
-}
+Vue.use(firestorePlugin)
 
 export const app = initializeApp(config)
 export const db = app.firestore()
