@@ -51,6 +51,15 @@
             />
           </q-item>
         </router-link>
+        <router-link to="/sign-up">
+          <q-item>
+            <q-item-side icon="key" />
+            <q-item-main
+              label="Sign Up"
+              sublabel="Sign Up"
+            />
+          </q-item>
+        </router-link>
         <q-item
           v-if="user"
           @click="signOut"

@@ -3,23 +3,23 @@
     <div>
       <div>
         <div>
-          <h2>Sign in to Your Account</h2>
+          <h2>Create an Account</h2>
         </div>
         <div>
           <form v-on:submit.prevent>
             <div>
               <label>Email</label>
               <div>
-                <input type="email" placeholder="joe@bloggs.com" v-model="email">
+                <input v-model="email">
               </div>
             </div>
             <div>
               <label>Password</label>
               <div>
-                <input type="password" v-model="password">
+                <input v-model="password">
               </div>
             </div>
-            <button type="submit" @click="signIn">Sign-in</button>
+            <q-btn @click="signUp">Sign-up</q-btn>
           </form>
         </div>
       </div>
@@ -38,8 +38,9 @@ export default {
     }
   },
   methods: {
-    signIn: function() {
-      auth.signInWithEmailAndPassword(this.email, this.password).then(
+    signUp: function() {
+      console.log(this.email, this.password)
+      auth.createUserWithEmailAndPassword(this.email, this.password).then(
         user => {
           this.$router.replace('dashboard')
         },

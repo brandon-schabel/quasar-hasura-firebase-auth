@@ -1,3 +1,3 @@
-export const setUser = context => {
-  context.commit('setUser')
+export const setUser = (context, payload) => {
+  context.commit('setUser', payload)
 }
