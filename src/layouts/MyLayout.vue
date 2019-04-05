@@ -64,6 +64,7 @@
 
 <script>
 import { openURL } from 'quasar'
+import { auth } from '../firebase'
 
 export default {
   name: 'MyLayout',
@@ -77,6 +78,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
