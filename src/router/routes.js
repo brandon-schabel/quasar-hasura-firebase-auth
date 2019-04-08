@@ -4,6 +4,7 @@ import Error404 from 'pages/Error404.vue'
 import Dashboard from 'pages/Dashboard.vue'
 import MyLayout from 'layouts/MyLayout.vue'
 import Index from 'pages/Index.vue'
+import Profile from 'pages/Profile.vue'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/',
     component: MyLayout,
     children: [{ path: '/sign-up', component: SignUpPage }]
+  },
+  {
+    path: '/',
+    component: MyLayout,
+    children: [{ path: '/profile', component: Profile }]
   },
   {
     path: '/',

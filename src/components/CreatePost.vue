@@ -9,7 +9,7 @@
 
 <script>
 import { CREATE_POST } from '../graphql/mutations/posts'
-// import { auth } from '../firebase'
+import { auth } from '../firebase'
 
 export default {
   name: 'CreatePost',
@@ -26,7 +26,7 @@ export default {
         variables: {
           postTitle: this.postTitle,
           postBody: this.postBody,
-          userId: '1'
+          userId: auth.currentUser.uid
         }
       })
     }

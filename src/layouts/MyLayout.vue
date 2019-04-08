@@ -60,6 +60,15 @@
             />
           </q-item>
         </router-link>
+        <router-link to="/profile" v-if="user">
+          <q-item>
+            <q-item-side icon="key" />
+            <q-item-main
+              label="Profile"
+              sublabel="Profile"
+            />
+          </q-item>
+        </router-link>
         <q-item>
           <SignOutButton v-if="user"></SignOutButton>
           <!-- <q-item-side icon="key" />
