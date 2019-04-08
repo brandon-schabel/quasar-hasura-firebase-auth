@@ -976,6 +976,11 @@
   resolved "https://registry.yarnpkg.com/@posva/vuefire-core/-/vuefire-core-1.1.0.tgz#4a3bf8a2719172325c6a6dae791feb44b485e8ff"
   integrity sha512-Z/jwkwyRUwC7KHpy7/ptjQwv3c0uDkAL9rmtYw8KNAK7ZKUFNAj4gqdMNgNbfmXykRLDYwtYDwuBWdtH2jR02Q==
 
+"@quasar/extras@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.1.1.tgz#f514bf5108c5de964949aaa336ba65266a25fd88"
+  integrity sha512-n9aQ9N9GBaRF15v3Rm5QDoeLOHFzjQ874f+54TthWmaQvx/8DV6fG/bwLgA6AjLUIZJs3ogm4J1KqWO+4zSg1g==
+
 "@types/node@^10.12.18":
   version "10.14.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.4.tgz#1c586b991457cbb58fef51bc4e0cfcfa347714b5"
@@ -6927,6 +6932,11 @@ quasar-framework@0.17.20:
   version "0.17.20"
   resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.17.20.tgz#dd8127683f3672f747a22a2f27f75e41d899c499"
   integrity sha512-NHLbDQxz25CfpFJQWJMnE8t2wM5H1YOWh6a5jYyiinDLZ0FlZWrCNrblT0sVOrTuunGp20trexDez5O9BcB2hw==
+
+quasar@^1.0.0-beta.15:
+  version "1.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.0.0-beta.15.tgz#2baf5ce1d0bee9bc54202fd8fc1c95f8e7ec2c67"
+  integrity sha512-VwDwqbPllitvhLaDMLu7UjBaUcSn9X+XruGNsJ2AlNIyHD1poIoJEJtmvZ6RTC8LupWyiRkVZ/CA7zX0RWmfAg==
 
 querystring-es3@^0.2.0:
   version "0.2.1"

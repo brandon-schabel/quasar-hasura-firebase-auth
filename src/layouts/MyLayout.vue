@@ -42,7 +42,7 @@
             />
           </q-item>
         </router-link>
-        <router-link to="/sign-in">
+        <router-link to="/sign-in" v-if="!user">
           <q-item>
             <q-item-side icon="key" />
             <q-item-main
@@ -51,7 +51,7 @@
             />
           </q-item>
         </router-link>
-        <router-link to="/sign-up">
+        <router-link to="/sign-up" v-if="!user">
           <q-item>
             <q-item-side icon="key" />
             <q-item-main
@@ -60,8 +60,8 @@
             />
           </q-item>
         </router-link>
-        <q-item @click="signOut">
-          <SignOutButton></SignOutButton>
+        <q-item>
+          <SignOutButton v-if="user"></SignOutButton>
           <!-- <q-item-side icon="key" />
           <q-item-main
             label="Sign Out"
@@ -79,7 +79,7 @@
 
 <script>
 import { openURL } from 'quasar'
-import { auth } from '../firebase'
+// import { auth } from '../firebase'
 import SignOutButton from 'components/SignOutButton'
 
 export default {
@@ -92,23 +92,11 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters.getUser
+      return this.$store.getters['userState/getUser'].user
     }
   },
   methods: {
-    openURL,
-    signOut: async function() {
-      console.log('signout triggered')
-      try {
-        this.setUser(this.$store.state, null, 'loading')
-        await auth.signOut().then(() => {
-          this.setUser(this.$store.state, null, 'out')
-          this.$router.push('sign-in')
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    openURL
   }
 }
 </script>

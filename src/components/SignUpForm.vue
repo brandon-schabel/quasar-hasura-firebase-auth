@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     signUp: function() {
-      console.log(this.email, this.password)
       auth.createUserWithEmailAndPassword(this.email, this.password).then(
         user => {
           this.$router.replace('dashboard')

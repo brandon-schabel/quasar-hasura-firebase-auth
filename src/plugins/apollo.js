@@ -3,15 +3,31 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import VueApollo from 'vue-apollo'
 import fetch from 'node-fetch'
 import { createHttpLink } from 'apollo-link-http'
+import { ApolloLink, concat } from 'apollo-link'
+import Store from '../store'
+const VuexStore = Store()
+
+const authMiddleware = new ApolloLink((operation, forward) => {
+  const headers = {
+    Authorization: VuexStore.getters['userState/getUser'].status ? `Bearer ${VuexStore.getters['userState/getUser'].token}` : {}
+  }
+  // add the authorization to the headers
+  operation.setContext({
+    headers
+  })
+
+  return forward(operation)
+})
 
 const httpLink = createHttpLink({
   uri: 'https://hasura-test-bschabs.herokuapp.com/v1alpha1/graphql',
   fetch: fetch
+  // headers
 })
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
-  link: httpLink,
+  link: concat(authMiddleware, httpLink),
   cache: new InMemoryCache(),
   connectToDevTools: true
 })
