@@ -29,6 +29,7 @@
 
 <script>
 import { auth } from '../firebase'
+import { CREATE_USER } from '../graphql/mutations/user'
 
 export default {
   data: function() {
@@ -41,12 +42,27 @@ export default {
     signUp: function() {
       auth.createUserWithEmailAndPassword(this.email, this.password).then(
         user => {
+          this.createUserInDb(user)
           this.$router.replace('dashboard')
         },
         error => {
           alert(error.message)
         }
       )
+    },
+    createUserInDb: function(user) {
+      const { uid, displayName, email, phoneNumber } = user
+      this.$apollo.mutate({
+        mutation: CREATE_USER,
+        variables: {
+          userInput: {
+            userId: uid,
+            displayName,
+            email,
+            phoneNumber
+          }
+        }
+      })
     }
   }
 }
